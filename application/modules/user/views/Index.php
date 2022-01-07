@@ -1,83 +1,84 @@
 <script src="<?= site_url('assets/backand/js/jquery-3.6.0.min.js') ?>"></script>
-<!-- Begin Page Content -->
-<div class="container-fluid">
-
-    <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800"><?= $judul; ?></h1>
-    <!-- DataTales Example -->
-    <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Data <?= $judul; ?></h6>
-        </div>
-        <div class="card-body">
-            <a href="#" class="btn btn-success btn-icon-split mb-2 tombol-tambah" data-toggle="modal" data-target="#menumodal">
-                <span class="icon text-white-50">
-                    <i class="fas fa-plus-square"></i>
-                </span>
-                <span class="text">Tambah</span>
-            </a>
-            <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                    <thead>
-                        <tr>
-                            <th>NO</th>
-                            <th>Nama</th>
-                            <th>Username</th>
-                            <th>Role</th>
-                            <th>Aktif</th>
-                            <th>Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        $no = 1;
-                        foreach ($data as $d) {
-                        ?>
-                            <tr>
-                                <td><?= $no++ ?></td>
-                                <td><?= $d->nama; ?></td>
-                                <td><?= $d->username; ?></td>
-                                <td><?= $d->role; ?></td>
-                                <td><?php
-                                    if ($d->aktif == 1) {
-                                        echo "aktif";
-                                    } else {
-                                        echo "tidak aktif";
-                                    }
-                                    ?></td>
-                                <td>
-                                    <a href="#" class="btn btn-warning btn-circle tombol-ubah" data-toggle="modal" data-target="#menumodal" data-id="<?= $d->iduser; ?>">
-                                        <i class="fas fa-exclamation-triangle"></i>
-                                    </a>
-                                    <a href="#" class="btn btn-primary btn-circle tombol-reset" data-toggle="modal" data-target="#resetmodal" data-id="<?= $d->iduser; ?>">
-                                        <i class="fas fa-lock"></i>
-                                    </a>
-                                    <a href="<?= site_url('user/hapus/') . $d->iduser ?>" class="btn btn-danger btn-circle">
-                                        <i class="fas fa-trash"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                        <?php } ?>
-                    </tbody>
-                </table>
+<!-- page content -->
+<div class="right_col" role="main">
+    <div class="row">
+        <div class="col-md-12 col-sm-12 ">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2><?= $judul; ?></h2>
+                    <div class="clearfix"></div>
+                </div>
+                <button type="button" class="btn btn-success btn-sm tombol-tambah" data-toggle="modal" data-target="#exampleModal"> Tambah User</button>
+                <div class="x_content">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="card-box table-responsive">
+                                <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th>NO</th>
+                                            <th>Nama</th>
+                                            <th>Username</th>
+                                            <th>Role</th>
+                                            <th>Aktif</th>
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        $no = 1;
+                                        foreach ($data as $d) {
+                                        ?>
+                                            <tr>
+                                                <td><?= $no++ ?></td>
+                                                <td><?= $d->nama; ?></td>
+                                                <td><?= $d->username; ?></td>
+                                                <td><?= $d->role; ?></td>
+                                                <td><?php
+                                                    if ($d->aktif == 1) {
+                                                        echo "aktif";
+                                                    } else {
+                                                        echo "tidak aktif";
+                                                    }
+                                                    ?></td>
+                                                <td>
+                                                    <a href="#" class="btn btn-warning tombol-ubah" data-toggle="modal" data-target="#exampleModal" data-id="<?= $d->iduser; ?>">
+                                                        <i class="fa fa-edit"></i>
+                                                    </a>
+                                                    <a href="#" class="btn btn-primary tombol-reset" data-toggle="modal" data-target="#resetmodal" data-id="<?= $d->iduser; ?>">
+                                                        <i class="fa fa-lock"></i>
+                                                    </a>
+                                                    <a href="<?= site_url('user/hapus/') . $d->iduser ?>" class="btn btn-danger btn-circle">
+                                                        <i class="fa fa-trash"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        <?php } ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <!-- /.container-fluid -->
 </div>
-</div>
-<!-- End of Main Content -->
-<div class="modal fade" id="menumodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- /page content -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <form method="POST" action="<?= site_url('user/tambah') ?>">
-            <input type="text" id="id" name="id" hidden>
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel"></h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form id="demo-form2" action="<?= site_url('user/tambah') ?>" method="POST" data-parsley-validate class="form-horizontal form-label-left">
+
+                <input type="hidden" name="id" id="id">
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="nama">Nama Lengkap</label>
@@ -115,20 +116,10 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <a href="#" class="btn btn-danger btn-icon-split mb-2">
-                        <span class="icon text-white-50">
-                            <i class="fas fa-times"></i>
-                        </span>
-                        <span class="text">Batal</span>
-                    </a>
-                    <button type="submit" class="btn btn-success btn-icon-split mb-2">
-                        <span class="icon text-white-50">
-                            <i class="fas fa-plus-square"></i>
-                        </span>
-                        <span class="text">Simpan</span>
-                    </button>
+                    <button type="button" class="btn  btn-danger" data-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-success"></button>
                 </div>
-            </div>
+        </div>
         </form>
     </div>
 </div>
@@ -154,13 +145,13 @@
                 <div class="modal-footer">
                     <a href="#" class="btn btn-danger btn-icon-split mb-2">
                         <span class="icon text-white-50">
-                            <i class="fas fa-times"></i>
+                            <i class="fa fa-times"></i>
                         </span>
                         <span class="text">Batal</span>
                     </a>
                     <button type="submit" class="btn btn-warning btn-icon-split mb-2">
                         <span class="icon text-white-50">
-                            <i class="fas fa-check"></i>
+                            <i class="fa fa-check"></i>
                         </span>
                         <span class="text">Reset</span>
                     </button>
@@ -169,6 +160,7 @@
         </form>
     </div>
 </div>
+
 <script>
     $(function() {
         // tambah
@@ -176,8 +168,8 @@
             $('.modal-title').html('Tambah User')
             $('#pass').html(`<label for="password">Password</label>
                         <input type="password" class="form-control" id="password" name="password" placeholder="password" autocomplete="off" required>`)
-            $('.modal-footer button[type= submit] span[class="icon text-white-50"]').html('	<i class="fas fa-plus-square"></i>')
-            $('.modal-footer button[type= submit] span[class="text"]').html('Simpan')
+
+            $('.modal-footer button[type= submit]').html('Simpan')
             $('#id').val('')
             $('#username').val('')
             $('#nama').val('')
@@ -188,8 +180,7 @@
         // ubah
         $('.tombol-ubah').on('click', function() {
             $('.modal-title').html('Ubah User')
-            $('.modal-footer button[type= submit] span[class="icon text-white-50"]').html('	<i class="fas fa-check"></i>')
-            $('.modal-footer button[type= submit] span[class="text"]').html('Ubah')
+            $('.modal-footer button[type= submit] ').html('Ubah')
             $('.modal-dialog form').attr('action', `<?= site_url('user/ubah') ?>`)
             const id = $(this).data('id')
             // console.log(id)

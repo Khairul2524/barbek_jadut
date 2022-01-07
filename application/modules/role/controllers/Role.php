@@ -8,6 +8,7 @@ class Role extends MX_Controller
 	public function __construct()
 	{
 		parent::__construct();
+		login();
 		$this->load->model('Role_model', 'role');
 		$this->load->model('All_model', 'all');
 	}

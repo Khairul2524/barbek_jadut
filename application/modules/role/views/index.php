@@ -1,58 +1,61 @@
 <script src="<?= site_url('assets/backand/js/jquery-3.6.0.min.js') ?>"></script>
-
-<!-- Begin Page Content -->
-<div class="container-fluid">
-
-	<!-- Page Heading -->
-	<h1 class="h3 mb-4 text-gray-800"><?= $judul; ?></h1>
-	<!-- DataTales Example -->
-	<div class="card shadow mb-4">
-		<div class="card-header py-3">
-			<h6 class="m-0 font-weight-bold text-primary">Data <?= $judul; ?></h6>
-		</div>
-		<div class="card-body">
-			<a href="#" class="btn btn-success btn-icon-split mb-2 tombol-tambah" data-toggle="modal" data-target="#menumodal">
-				<span class="icon text-white-50">
-					<i class="fas fa-plus-square"></i>
-				</span>
-				<span class="text">Tambah</span>
-			</a>
-			<div class="table-responsive">
-				<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-					<thead>
-						<tr>
-							<th>NO</th>
-							<th>Role</th>
-							<th>Aksi</th>
-						</tr>
-					</thead>
-					<tbody>
-						<?php
-						$no = 1;
-						foreach ($data as $d) {
-						?>
-							<tr>
-								<td scope="row"><?= $no++; ?></td>
-								<td><?= $d->role; ?></td>
-								<td>
-									<a href="#" class="btn btn-warning btn-circle tombol-ubah" data-toggle="modal" data-target="#menumodal" data-id="<?= $d->idrole; ?>">
-										<i class="fas fa-exclamation-triangle"></i>
-									</a>
-									<a href="<?= site_url('role/hapus/') . $d->idrole ?>" class="btn btn-danger btn-circle" onclick="return confirm('Yakin Hapus?')">
-										<i class="fas fa-trash"></i>
-									</a>
-								</td>
-							</tr>
-						<?php } ?>
-					</tbody>
-				</table>
+<!-- page content -->
+<div class="right_col" role="main">
+	<div class="row">
+		<div class="col-md-12 col-sm-12 ">
+			<div class="x_panel">
+				<div class="x_title">
+					<h2><?= $judul; ?></h2>
+					<div class="clearfix"></div>
+				</div>
+				<a href="#" class="btn btn-success btn-icon-split mb-2 tombol-tambah" data-toggle="modal" data-target="#menumodal">
+					<span class="icon text-white-50">
+						<i class="fa fa-plus-square"></i>
+					</span>
+					<span class="text">Tambah</span>
+				</a>
+				<div class="x_content">
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="card-box table-responsive">
+								<table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" style="width:100%">
+									<thead>
+										<tr>
+											<th>NO</th>
+											<th>Role</th>
+											<th>Aksi</th>
+										</tr>
+									</thead>
+									<tbody>
+										<?php
+										$no = 1;
+										foreach ($data as $d) {
+										?>
+											<tr>
+												<td scope="row"><?= $no++; ?></td>
+												<td><?= $d->role; ?></td>
+												<td>
+													<a href="#" class="btn btn-warning btn-circle tombol-ubah" data-toggle="modal" data-target="#menumodal" data-id="<?= $d->idrole; ?>">
+														<i class="fa fa-edit"></i>
+													</a>
+													<a href="<?= site_url('role/hapus/') . $d->idrole ?>" class="btn btn-danger btn-circle" onclick="return confirm('Yakin Hapus?')">
+														<i class="fa fa-trash"></i>
+													</a>
+												</td>
+											</tr>
+										<?php } ?>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
-	<!-- /.container-fluid -->
 </div>
-</div>
-<!-- End of Main Content -->
+<!-- /page content -->
+
 <div class="modal fade" id="menumodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	<div class="modal-dialog" role="document">
 		<form method="POST" action="<?= site_url('role/tambah') ?>">
@@ -73,13 +76,13 @@
 				<div class="modal-footer">
 					<a href="#" class="btn btn-danger btn-icon-split mb-2">
 						<span class="icon text-white-50">
-							<i class="fas fa-times"></i>
+							<i class="fa fa-times"></i>
 						</span>
 						<span class="text">Batal</span>
 					</a>
 					<button type="submit" class="btn btn-success btn-icon-split mb-2">
 						<span class="icon text-white-50">
-							<i class="fas fa-plus-square"></i>
+							<i class="fa fa-plus-square"></i>
 						</span>
 						<span class="text">Simpan</span>
 					</button>
@@ -93,7 +96,7 @@
 		// tambah
 		$('.tombol-tambah').on('click', function() {
 			$('.modal-title').html('Tambah Role')
-			$('.modal-footer button[type= submit] span[class="icon text-white-50"]').html('	<i class="fas fa-plus-square"></i>')
+			$('.modal-footer button[type= submit] span[class="icon text-white-50"]').html('	<i class="fa fa-plus-square"></i>')
 			$('.modal-footer button[type= submit] span[class="text"]').html('Simpan')
 			$('#id').val('')
 			$('#role').val('')
@@ -101,7 +104,7 @@
 		// ubah
 		$('.tombol-ubah').on('click', function() {
 			$('.modal-title').html('Ubah Role')
-			$('.modal-footer button[type= submit] span[class="icon text-white-50"]').html('	<i class="fas fa-check"></i>')
+			$('.modal-footer button[type= submit] span[class="icon text-white-50"]').html('	<i class="fa fa-check"></i>')
 			$('.modal-footer button[type= submit] span[class="text"]').html('Ubah')
 			$('.modal-dialog form').attr('action', `<?= site_url('role/ubah') ?>`)
 			const id = $(this).data('id')

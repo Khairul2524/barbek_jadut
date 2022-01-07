@@ -8,7 +8,7 @@ class user extends MX_Controller
 	public function __construct()
 	{
 		parent::__construct();
-
+		login();
 		$this->load->model('User_model', 'user');
 		$this->load->model('All_model', 'all');
 	}

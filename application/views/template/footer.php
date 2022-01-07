@@ -1,53 +1,42 @@
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Sistem Pendafaran Siswa <?= date('Y') ?></span>
-                    </div>
-                </div>
-            </footer>
-            <!-- End of Footer -->
+<!-- footer content -->
+<footer>
+    <div class="pull-right">
+        Sistem Penjualan Songket
+    </div>
+    <div class="clearfix"></div>
+</footer>
+<!-- /footer content -->
+</div>
+</div>
 
-            </div>
-            <!-- End of Content Wrapper -->
+<!-- jQuery -->
+<script src="<?= base_url('assets/backand/') ?>vendors/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="<?= base_url('assets/backand/') ?>vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<!-- FastClick -->
+<script src="<?= base_url('assets/backand/') ?>vendors/fastclick/lib/fastclick.js"></script>
+<!-- NProgress -->
+<script src="<?= base_url('assets/backand/') ?>vendors/nprogress/nprogress.js"></script>
+<!-- jQuery custom content scroller -->
+<script src="<?= base_url('assets/backand/') ?>vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
 
-            </div>
-            <!-- End of Page Wrapper -->
+<!-- Custom Theme Scripts -->
+<script src="<?= base_url('assets/backand/') ?>build/js/custom.min.js"></script>
+<script src="<?= base_url('assets/backand/') ?>vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="<?= base_url('assets/backand/') ?>vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="<?= base_url('assets/backand/') ?>vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+<script src="<?= base_url('assets/backand/') ?>vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+<script src="<?= base_url('assets/backand/') ?>vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+<script src="<?= base_url('assets/backand/') ?>vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+<script src="<?= base_url('assets/backand/') ?>vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+<script src="<?= base_url('assets/backand/') ?>vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+<script src="<?= base_url('assets/backand/') ?>vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+<script src="<?= base_url('assets/backand/') ?>vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+<script src="<?= base_url('assets/backand/') ?>vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+<script src="<?= base_url('assets/backand/') ?>vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+<script src="<?= base_url('assets/backand/') ?>vendors/sweetalert/sweetalert2.all.min.js"></script>
+<script src="<?= base_url('assets/backand/') ?>vendors/script/script.js"></script>
 
-            <!-- Scroll to Top Button-->
-            <a class="scroll-to-top rounded" href="#page-top">
-                <i class="fas fa-angle-up"></i>
-            </a>
+</body>
 
-            <!-- Logout Modal-->
-            <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Anda Akan keluar ?</h5>
-                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">×</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">Jika anda keluar maka anda harus login kembali untuk masuk ke sistem </div>
-                        <div class="modal-footer">
-                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                            <a class="btn btn-primary" href="<?= site_url('auth/keluar') ?>">Logout</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Bootstrap core JavaScript-->
-            <script src="<?= base_url('assets/backand/') ?>vendor/jquery/jquery.min.js"></script>
-            <script src="<?= base_url('assets/backand/') ?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-            <!-- Core plugin JavaScript-->
-            <script src="<?= base_url('assets/backand/') ?>vendor/jquery-easing/jquery.easing.min.js"></script>
-
-            <!-- Custom scripts for all pages-->
-            <script src="<?= base_url('assets/backand/') ?>js/sb-admin-2.min.js"></script>
-
-            </body>
-
-            </html>
+</html>

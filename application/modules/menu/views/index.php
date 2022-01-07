@@ -1,72 +1,77 @@
 <script src="<?= site_url('assets/backand/js/jquery-3.6.0.min.js') ?>"></script>
-<!-- Begin Page Content -->
-<div class="container-fluid">
+<!-- page content -->
+<div class="right_col" role="main">
+	<div class="row">
+		<div class="col-md-12 col-sm-12 ">
+			<div class="x_panel">
+				<div class="x_title">
+					<h2><?= $judul; ?></h2>
+					<div class="clearfix"></div>
+				</div>
+				<a href="#" class="btn btn-success btn-icon-split mb-2 tambah-menu" data-toggle="modal" data-target="#menumodal">
+					<span class="icon text-white-50">
+						<i class="fa fa-plus-square"></i>
+					</span>
+					<span class="text">Tambah</span>
+				</a>
+				<div class="x_content">
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="card-box table-responsive">
+								<table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" style="width:100%">
+									<thead>
+										<tr>
+											<th>No</th>
+											<th>Menu</th>
+											<th>icon</th>
+											<th>url</th>
+											<th>urutan</th>
+											<th>Aktif</th>
+											<th>Aksi</th>
+										</tr>
+									</thead>
+									<tbody>
+										<?php
+										$no = 1;
+										foreach ($menu as $d) {
+										?>
+											<tr>
+												<td><?= $no++ ?></td>
+												<td><?= $d->menu ?></td>
+												<td><?= $d->icon ?></td>
+												<td><?= $d->url ?></td>
+												<td><?= $d->urutan ?></td>
+												<td><?php
+													if ($d->aktif == 1) {
+														echo "Aktif";
+													} else {
+														echo "Tidak Aktif";
+													}
 
-	<!-- Page Heading -->
-	<h1 class="h3 mb-4 text-gray-800"><?= $judul; ?></h1>
-	<div class="card shadow mb-4">
-		<div class="card-header py-3">
-			<h6 class="m-0 font-weight-bold text-primary">Data <?= $judul ?></h6>
-		</div>
-		<div class="card-body">
-			<a href="#" class="btn btn-success btn-icon-split mb-2 tambah-menu" data-toggle="modal" data-target="#menumodal">
-				<span class="icon text-white-50">
-					<i class="fas fa-plus-square"></i>
-				</span>
-				<span class="text">Tambah</span>
-			</a>
-			<div class="table-responsive">
-				<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-					<thead>
-						<tr>
-							<th>No</th>
-							<th>Menu</th>
-							<th>icon</th>
-							<th>url</th>
-							<th>urutan</th>
-							<th>Aktif</th>
-							<th>Aksi</th>
-						</tr>
-					</thead>
-					<tbody>
-						<?php
-						$no = 1;
-						foreach ($menu as $d) {
-						?>
-							<tr>
-								<td><?= $no++ ?></td>
-								<td><?= $d->menu ?></td>
-								<td><?= $d->icon ?></td>
-								<td><?= $d->url ?></td>
-								<td><?= $d->urutan ?></td>
-								<td><?php
-									if ($d->aktif == 1) {
-										echo "Aktif";
-									} else {
-										echo "Tidak Aktif";
-									}
-
-									?></td>
-								<td class="text-center">
-									<button data-toggle="modal" data-target="#menumodal" class="btn btn-warning btn-circle ubah-menu" data-id="<?= $d->idmenu ?>">
-										<i class="fas fa-exclamation-triangle"></i>
-									</button>
-									<a href="<?= site_url('menu/hapus/') . $d->idmenu ?>" class="btn btn-danger btn-circle" onclick="return confirm('Yakin Hapus?')">
-										<i class="fas fa-trash"></i>
-									</a>
-								</td>
-							</tr>
-						<?php } ?>
-					</tbody>
-				</table>
+													?></td>
+												<td class="text-center">
+													<button data-toggle="modal" data-target="#menumodal" class="btn btn-warning btn-circle ubah-menu" data-id="<?= $d->idmenu ?>">
+														<i class="fa fa-exclamation-triangle"></i>
+													</button>
+													<a href="<?= site_url('menu/hapus/') . $d->idmenu ?>" class="btn btn-danger btn-circle" onclick="return confirm('Yakin Hapus?')">
+														<i class="fa fa-trash"></i>
+													</a>
+												</td>
+											</tr>
+										<?php } ?>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
-
 </div>
-<!-- /.container-fluid -->
+<!-- /page content -->
 
-<!-- Logout Modal-->
+
 <div class="modal fade" id="menumodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	<div class="modal-dialog" role="document">
 		<form method="POST" action="<?= site_url('menu/tambah') ?>">
@@ -112,13 +117,13 @@
 				<div class="modal-footer">
 					<a href="#" class="btn btn-danger btn-icon-split mb-2">
 						<span class="icon text-white-50">
-							<i class="fas fa-times"></i>
+							<i class="fa fa-times"></i>
 						</span>
 						<span class="text">Batal</span>
 					</a>
 					<button type="submit" class="btn btn-success btn-icon-split mb-2">
 						<span class="icon text-white-50">
-							<i class="fas fa-plus-square"></i>
+							<i class="fa fa-plus-square"></i>
 						</span>
 						<span class="text">Simpan</span>
 					</button>
@@ -137,7 +142,7 @@
 		// tambah
 		$('.tambah-menu').on('click', function() {
 			$('.modal-title').html('Tambah Menu')
-			$('.modal-footer button[type= submit] span[class="icon text-white-50"]').html('	<i class="fas fa-plus-square"></i>')
+			$('.modal-footer button[type= submit] span[class="icon text-white-50"]').html('	<i class="fa fa-plus-square"></i>')
 			$('.modal-footer button[type= submit] span[class="text"]').html('Simpan')
 			$('#id').val('')
 			$('#menus').val('')
@@ -150,7 +155,7 @@
 		// ubah
 		$('.ubah-menu').on('click', function() {
 			$('.modal-title').html('Ubah Menu')
-			$('.modal-footer button[type= submit] span[class="icon text-white-50"]').html('	<i class="fas fa-check"></i>')
+			$('.modal-footer button[type= submit] span[class="icon text-white-50"]').html('	<i class="fa fa-check"></i>')
 			$('.modal-footer button[type= submit] span[class="text"]').html('Ubah')
 			$('.modal-dialog form').attr('action', `<?= site_url('menu/ubah') ?>`)
 			const id = $(this).data('id')

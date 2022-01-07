@@ -1,11 +1,7 @@
-<!-- Begin Page Content -->
-<div class="container-fluid">
+<!-- page content -->
+<div class="right_col" role="main">
+    <div class="">
 
-    <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
-
+    </div>
 </div>
-<!-- /.container-fluid -->
-
-</div>
-<!-- End of Main Content -->
+<!-- /page content -->
